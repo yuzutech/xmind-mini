@@ -125,7 +125,7 @@ public class SVGExporter extends Exporter {
         properties.set(IMindMapViewer.PLUS_VISIBLE, plusVisible);
         properties.set(IMindMapViewer.MINUS_VISIBLE, minusVisible);
 
-        if (Platform.OS_LINUX.equals(Platform.getOS())) {
+        if (Platform.OS_LINUX.equals(io.kroki.xmind.Platform.getOS())) {
             properties.set(VIEWER_RENDER_TEXT_AS_PATH, false);
         } else {
             properties.set(VIEWER_RENDER_TEXT_AS_PATH, true);

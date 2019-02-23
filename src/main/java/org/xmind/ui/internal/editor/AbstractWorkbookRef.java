@@ -117,10 +117,7 @@ public abstract class AbstractWorkbookRef extends Editable
 
         setEncryptable(createEncryptable());
 
-        setCommandStack(new CommandStack(Math.max(MindMapUIPlugin.getDefault()
-                .getPreferenceStore().getInt(PrefConstants.UNDO_LIMIT), 1)));
-        MindMapUIPlugin.getDefault().getPreferenceStore()
-                .addPropertyChangeListener(this);
+        setCommandStack(new CommandStack(1));
 
         if (state != null) {
             IStorage savedTempStorage = restoreStateForTempStorage(state);
@@ -261,10 +258,12 @@ public abstract class AbstractWorkbookRef extends Editable
         doSaveWorkbookToTempStorage(subMonitor.newChild(10), workbook);
         setWorkbook(workbook);
 
+        /*
         MindMapUIPlugin.getDefault().getPreferenceStore()
                 .removePropertyChangeListener(this);
         MindMapUIPlugin.getDefault().getPreferenceStore()
                 .addPropertyChangeListener(this);
+                */
     }
 
     protected IWorkbook doLoadWorkbook(IProgressMonitor monitor)

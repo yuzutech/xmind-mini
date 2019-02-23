@@ -69,8 +69,7 @@ public class DefaultMindMapPreviewGenerator
         Assert.isLegal(output != null);
 
         final Properties properties = new Properties();
-        if (sheet == null || MindMapUIPlugin.getDefault().getPreferenceStore()
-                .getBoolean(PrefConstants.PREVIEW_SKIPPED)) {
+        if (sheet == null) {
             URL url = BundleUtility.find(MindMapUI.PLUGIN_ID,
                     IMindMapImages.DEFAULT_THUMBNAIL);
             if (url != null) {

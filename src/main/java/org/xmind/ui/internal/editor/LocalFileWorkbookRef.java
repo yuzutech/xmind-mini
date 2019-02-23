@@ -89,9 +89,6 @@ import org.xmind.ui.util.Logger;
  */
 public class LocalFileWorkbookRef extends AbstractWorkbookRef {
 
-    private static boolean DEBUG_BACKUP = MindMapUIPlugin
-            .isDebugging(MindMapUIPlugin.OPTION_LOCAL_FILE_BACKUP);
-
     private static class PreParser {
 
         private IInputSource inputSource;
@@ -172,11 +169,6 @@ public class LocalFileWorkbookRef extends AbstractWorkbookRef {
                 return;
             }
 
-            if (DEBUG_BACKUP) {
-                System.out.println("Making local file backup for: " //$NON-NLS-1$
-                        + file.getAbsolutePath());
-                System.out.println("    to: " + tempFile.getAbsolutePath()); //$NON-NLS-1$
-            }
             try {
                 FileUtils.transfer(file, tempFile);
             } catch (IOException e) {
@@ -194,11 +186,6 @@ public class LocalFileWorkbookRef extends AbstractWorkbookRef {
                 return;
             }
 
-            if (DEBUG_BACKUP) {
-                System.out.println("Restoring local file backup for: " //$NON-NLS-1$
-                        + file.getAbsolutePath());
-                System.out.println("    from: " + tempFile.getAbsolutePath()); //$NON-NLS-1$
-            }
             try {
                 FileUtils.transfer(tempFile, file);
             } catch (IOException e) {
@@ -212,11 +199,6 @@ public class LocalFileWorkbookRef extends AbstractWorkbookRef {
         }
 
         public void deleteBackup() {
-            if (DEBUG_BACKUP) {
-                System.out.println("Deleting local file backup for: " //$NON-NLS-1$
-                        + file.getAbsolutePath());
-                System.out.println("    at: " + tempFile.getAbsolutePath()); //$NON-NLS-1$
-            }
             tempFile.delete();
         }
 

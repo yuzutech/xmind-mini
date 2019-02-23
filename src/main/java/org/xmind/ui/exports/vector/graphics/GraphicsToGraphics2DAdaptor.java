@@ -819,7 +819,7 @@ public class GraphicsToGraphics2DAdaptor extends Graphics {
         checkState();
         getGraphics2D().setPaint(getColor(swtGraphics.getForegroundColor()));
         getGraphics2D().drawString(s, xpos, ypos);
-        if (Platform.OS_LINUX.equals(Platform.getOS()))
+        if (Platform.OS_LINUX.equals(io.kroki.xmind.Platform.getOS()))
             swtGraphics.drawString(s, (int) xpos, (int) ypos);
         // }
 

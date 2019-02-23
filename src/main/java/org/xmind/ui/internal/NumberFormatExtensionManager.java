@@ -172,8 +172,10 @@ public class NumberFormatExtensionManager extends RegistryReader
     }
 
     private void lazyLoad() {
+      /*
         readRegistry(Platform.getExtensionRegistry(), MindMapUI.PLUGIN_ID,
                 RegistryConstants.EXT_NUMBER_FORMATS);
+                */
     }
 
     public INumberFormatDescriptor getDescriptor(String formatId) {
